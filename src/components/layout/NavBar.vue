@@ -16,12 +16,8 @@
     "
   >
     <div class="flex gap-4 max-w-5xl text-[#fefef6] w-full mx-auto">
-      <button>
-        <RouterLink to="/">Notes</RouterLink>
-      </button>
-      <button>
-        <RouterLink to="/stats">Stats</RouterLink>
-      </button>
+      <RouterLink active-class="text-yellow-300" to="/">Notes</RouterLink>
+      <RouterLink active-class="text-yellow-300" to="/stats">Stats</RouterLink>
     </div>
   </nav>
 </template>

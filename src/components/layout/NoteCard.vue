@@ -10,7 +10,7 @@
         flex flex-col
         justify-between
         bg-[#83d8d8]
-        border border-[#282828]
+        border-2 border-[#282828]
         rounded-lg
         py-5
         px-4
