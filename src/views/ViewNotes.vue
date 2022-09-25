@@ -1,5 +1,10 @@
+<script setup>
+import NoteCard from "@/components/layout/NoteCard.vue";
+</script>
+  
+
 <template>
   <div class="notes">
-    <h1>Notes</h1>
+    <NoteCard />
   </div>
 </template>
