@@ -5,18 +5,17 @@
   <!-- component -->
   <nav
     class="
-      bg-white
+      bg-[#282828]
       w-full
       flex
       relative
       justify-between
       items-center
-      mx-auto
       px-8
       h-20
     "
   >
-    <div class="flex gap-4">
+    <div class="flex gap-4 max-w-5xl text-[#fefef6] w-full mx-auto">
       <button>
         <RouterLink to="/">Notes</RouterLink>
       </button>

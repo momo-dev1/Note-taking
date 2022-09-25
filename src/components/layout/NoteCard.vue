@@ -2,26 +2,23 @@
 </script>
 
 <template>
-  <div class="max-w-md rounded-lg">
+  <div class="max-w-md py-10 px-3 mx-auto">
     <div
       class="
         w-full
         h-64
         flex flex-col
         justify-between
-        dark:bg-gray-800
-        bg-white
-        dark:border-gray-700
-        border border-gray-400
+        bg-[#83d8d8]
+        border border-[#282828]
+        rounded-lg
         py-5
         px-4
       "
     >
       <div>
-        <h4 class="text-gray-800 dark:text-gray-100 font-bold mb-3">
-          13 things to work on
-        </h4>
-        <p class="text-gray-800 dark:text-gray-100 text-sm">
+        <h4 class="text-gray-800 font-bold mb-3">13 things to work on</h4>
+        <p class="text-gray-800 text-sm">
           Our interior design experts work with you to create the space that you
           have been dreaming about.
         </p>
