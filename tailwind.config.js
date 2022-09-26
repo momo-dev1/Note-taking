@@ -10,7 +10,10 @@ module.exports = {
         ivory: "#FEFEF6",
         nero: "#282828",
         spray: "#83D8D8"
-      }
+      },
+      fontFamily: {
+        sans: ['Roboto Mono', "sans-serif"]
+      },
     },
   },
   plugins: [],

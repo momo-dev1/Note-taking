@@ -4,6 +4,7 @@ import { useStoreNotes } from "../store/storeNotes";
 
 const title = ref("");
 const content = ref("");
+const isDisabled = ref(false);
 
 const noteStore = useStoreNotes();
 
@@ -20,14 +21,7 @@ const handleSubmit = () => {
     class="relative m-4 max-w-3xl lg:mx-auto"
   >
     <div
-      class="
-        bg-nero
-        border border-gray-300
-        rounded-lg
-        shadow-md
-        p-2
-        overflow-hidden
-      "
+      class="border border-gray-300 rounded-lg shadow-md p-5 overflow-hidden"
     >
       <label for="title" class="sr-only">Title</label>
       <input
@@ -36,21 +30,21 @@ const handleSubmit = () => {
         name="title"
         id="title"
         class="
-          capitalize
           block
           w-full
-          py-2
+          py-1
           px-1
           text-lg
-          border
           font-medium
-          rounded
+          border-l-2 border-nero
           outline-none
-          placeholder-gray-500
+          placeholder-nero
           focus:ring-0
-          mb-4
+          placeholder:font-bold
+          mb-6
+          bg-transparent
         "
-        placeholder="Title"
+        placeholder="Add title"
       />
       <label for="description" class="sr-only">Description</label>
       <textarea
@@ -59,9 +53,10 @@ const handleSubmit = () => {
         name="description"
         id="description"
         class="
+          bg-transparent
           block
           w-full
-          border-0
+          border-2 border-nero
           outline-none
           py-2
           px-2
@@ -88,16 +83,7 @@ const handleSubmit = () => {
 
     <div class="absolute bottom-0 inset-x-1">
       <div
-        class="
-          border-t border-gray-200
-          px-2
-          py-2
-          flex
-          justify-between
-          items-center
-          space-x-3
-          sm:px-3
-        "
+        class="px-2 py-2 flex justify-between items-center space-x-3 sm:px-3"
       >
         <div class="flex-shrink-0 ml-auto">
           <button
@@ -107,12 +93,14 @@ const handleSubmit = () => {
               py-2
               border border-transparent
               text-sm
-              font-medium
+              font-bold
               rounded-md
               shadow-sm
               text-white
-              bg-spray
+              bg-nero
+              disabled:bg-nero/50 disabled:cursor-not-allowed
             "
+            :disabled="!title || !content"
           >
             Create
           </button>
@@ -122,5 +110,3 @@ const handleSubmit = () => {
   </form>
 </template>
 
-<style  scoped>
-</style>
