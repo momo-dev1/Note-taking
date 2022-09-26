@@ -1,11 +1,31 @@
 <script setup>
+import { computed, ref } from "@vue/runtime-core";
+import { useStoreNotes } from "../store/storeNotes";
+
+const props = defineProps({
+  note: {
+    type: Object,
+    required: true,
+  },
+});
+
+const characterCount = computed(() => {
+  const count = props.note.content.length;
+  return count > 1 ? `${count} characters` : `${count} character`;
+});
+
+const noteStore = useStoreNotes();
+
+const handleDelete = (noteId) => {
+  noteStore.deleteNote(noteId);
+};
 </script>
 
 <template>
   <div
     class="
       w-full
-      h-64
+      min-h-[256px]
       flex flex-col
       justify-between
       bg-spray
@@ -17,15 +37,15 @@
   >
     <div>
       <div class="flex justify-between w-full items-center mb-3">
-        <h4 class="text-gray-800 font-bold">13 things to work on</h4>
-        <p class="text-xs text-gray-800 font-semibold">March 28, 2020</p>
+        <h4 class="text-gray-800 font-bold">{{ note.title }}</h4>
+        <p class="text-xs text-gray-800 font-semibold">{{ note.date }}</p>
       </div>
 
-      <p class="text-gray-800 text-sm">
-        Our interior design experts work with you to create the space that you
-        have been dreaming about.
+      <p class="text-gray-800 text-sm break-words">
+        {{ note.content }}
       </p>
     </div>
+
     <div>
       <div
         class="
@@ -36,9 +56,12 @@
           dark:text-gray-100
         "
       >
-        <p class="text-sm text-gray-800 font-semibold ">212 character</p>
+        <p class="text-sm text-gray-800 font-semibold">
+          {{ characterCount }}
+        </p>
 
         <div class="flex gap-2">
+          <!-- Edit-btn -->
           <button
             class="
               w-10
@@ -68,7 +91,9 @@
               />
             </svg>
           </button>
+          <!-- Delete-btn -->
           <button
+            @click="handleDelete(note.id)"
             class="
               w-10
               h-10

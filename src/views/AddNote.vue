@@ -1,7 +1,17 @@
 <script setup>
 import { ref } from "vue";
+import { useStoreNotes } from "../store/storeNotes";
 
-const handleSubmit = () => {};
+const title = ref("");
+const content = ref("");
+
+const noteStore = useStoreNotes();
+
+const handleSubmit = () => {
+  noteStore.addNote({ title: title.value, content: content.value });
+  title.value = "";
+  content.value = "";
+};
 </script>
 
 <template>
@@ -11,20 +21,22 @@ const handleSubmit = () => {};
   >
     <div
       class="
+        bg-nero
         border border-gray-300
         rounded-lg
-        shadow-sm
+        shadow-md
         p-2
         overflow-hidden
-        focus-within:border-nero focus-within:ring-1 focus-within:ring-nero
       "
     >
       <label for="title" class="sr-only">Title</label>
       <input
+        v-model="title"
         type="text"
         name="title"
         id="title"
         class="
+          capitalize
           block
           w-full
           py-2
@@ -42,6 +54,7 @@ const handleSubmit = () => {};
       />
       <label for="description" class="sr-only">Description</label>
       <textarea
+        v-model="content"
         rows="2"
         name="description"
         id="description"
@@ -51,7 +64,9 @@ const handleSubmit = () => {};
           border-0
           outline-none
           py-2
-          px-1
+          px-2
+          h-32
+          rounded
           resize-none
           placeholder-gray-500
           focus:ring-0
@@ -62,9 +77,6 @@ const handleSubmit = () => {};
 
       <!-- Spacer element to match the height of the toolbar -->
       <div aria-hidden="true">
-        <div class="py-2">
-          <div class="h-9" />
-        </div>
         <div class="h-px" />
         <div class="py-2">
           <div class="py-px">
