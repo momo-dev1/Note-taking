@@ -1,31 +1,27 @@
 <script setup>
-import { ref } from "vue";
-import { useStoreNotes } from "../store/storeNotes";
-
-const title = ref("");
-const content = ref("");
-const isDisabled = ref(false);
-
-const noteStore = useStoreNotes();
-
-const handleSubmit = () => {
-  noteStore.addNote({ title: title.value, content: content.value });
-  title.value = "";
-  content.value = "";
-};
+const props = defineProps({
+  titleValue: {
+    type: String,
+  },
+  contentValue: {
+    type: String,
+  },
+  handleSubmit: {
+    type: String,
+  },
+});
 </script>
 
 <template>
   <form
-    @submit.prevent="handleSubmit"
+    @submit.prevent="$emit('handleSubmit')"
     class="relative m-4 max-w-3xl lg:mx-auto"
   >
-    <div
-      class="border border-gray-300 rounded-lg shadow-md p-5 overflow-hidden"
-    >
+    <div class="border border-nero rounded-lg shadow-md p-5 overflow-hidden">
       <label for="title" class="sr-only">Title</label>
       <input
-        v-model="title"
+        v-model="titleValue"
+        @input="$emit('update:titleValue', titleValue)"
         type="text"
         name="title"
         id="title"
@@ -48,7 +44,8 @@ const handleSubmit = () => {
       />
       <label for="description" class="sr-only">Description</label>
       <textarea
-        v-model="content"
+        v-model="contentValue"
+        @input="$emit('update:contentValue', contentValue)"
         rows="2"
         name="description"
         id="description"
@@ -86,27 +83,11 @@ const handleSubmit = () => {
         class="px-2 py-2 flex justify-between items-center space-x-3 sm:px-3"
       >
         <div class="flex-shrink-0 ml-auto">
-          <button
-            type="submit"
-            class="
-              px-4
-              py-2
-              border border-transparent
-              text-sm
-              font-bold
-              rounded-md
-              shadow-sm
-              text-white
-              bg-nero
-              disabled:bg-nero/50 disabled:cursor-not-allowed
-            "
-            :disabled="!title || !content"
-          >
-            Create
-          </button>
+          <slot name="submit" />
         </div>
       </div>
     </div>
   </form>
 </template>
+
 
