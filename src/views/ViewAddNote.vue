@@ -14,7 +14,6 @@ const handleSubmit = () => {
   content.value = "";
 };
 </script>
-<!-- :titletValue="title" -->
 <template>
   <EditAddNote
     v-model:titleValue="title"
