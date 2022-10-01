@@ -26,6 +26,11 @@ export const useStoreNotes = defineStore('storeNotes', {
         deleteNote(noteId) {
             const filteredNotes = this.notes.filter(note => note.id !== noteId)
             this.notes = filteredNotes
+        },
+        editNote(payload) {
+            let index = this.notes.findIndex(note => note.id === payload.id)
+            this.notes[index].title = payload?.title
+            this.notes[index].content = payload?.content
         }
     },
     getters: {
