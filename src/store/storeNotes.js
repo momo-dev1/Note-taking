@@ -28,4 +28,13 @@ export const useStoreNotes = defineStore('storeNotes', {
             this.notes = filteredNotes
         }
     },
+    getters: {
+        getNote: (state) => {
+            return (editId) => {
+                const title = state.notes.find(note => note.id === editId)?.title
+                const content = state.notes.find(note => note.id === editId)?.content
+                return { title, content }
+            }
+        }
+    }
 })
