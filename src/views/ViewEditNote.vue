@@ -34,6 +34,22 @@ const handleSubmit = () => {
     @handleSubmit="handleSubmit"
   >
     <template #submit>
+      <RouterLink
+        to="/"
+        class="
+          px-4
+          py-2
+          border border-transparent
+          text-sm
+          font-bold
+          rounded-md
+          shadow-sm
+          text-white
+          bg-red-500
+        "
+      >
+        Cancel
+      </RouterLink>
       <button
         type="submit"
         class="

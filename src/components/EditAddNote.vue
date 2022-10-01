@@ -15,7 +15,7 @@ const props = defineProps({
 <template>
   <form
     @submit.prevent="$emit('handleSubmit')"
-    class="relative m-4 max-w-3xl lg:mx-auto"
+    class="relative m-4 max-w-3xl md:mx-auto"
   >
     <div class="border border-nero rounded-lg shadow-md p-5 overflow-hidden">
       <label for="title" class="sr-only">Title</label>
@@ -82,7 +82,7 @@ const props = defineProps({
       <div
         class="px-2 py-2 flex justify-between items-center space-x-3 sm:px-3"
       >
-        <div class="flex-shrink-0 ml-auto">
+        <div class="flex-shrink-0 ml-auto flex gap-2 py-2">
           <slot name="submit" />
         </div>
       </div>
