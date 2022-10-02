@@ -30,11 +30,11 @@ const notes = useStoreNotes();
       <tbody class="text-sm divide-y divide-gray-200">
         <tr>
           <td class="p-2">Number of notes</td>
-          <td class="p-2">{{ notes.totalNoteCount }}</td>
+          <td class="pl-4">{{ notes.totalNoteCount }}</td>
         </tr>
         <tr>
           <td class="p-2">Number of Characters (of all notes)</td>
-          <td class="p-2">{{ notes.totalCharacterCount }}</td>
+          <td class="pl-4">{{ notes.totalCharacterCount }}</td>
         </tr>
       </tbody>
     </table>
