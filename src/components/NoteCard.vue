@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from "@vue/runtime-core";
-import { useStoreNotes } from "../store/storeNotes";
+import { useStoreNotes } from "@/store/storeNotes";
 
 const props = defineProps({
   note: {

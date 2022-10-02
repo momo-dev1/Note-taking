@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <template>
   <nav class="bg-nero w-full">
     <ul

@@ -1,7 +1,7 @@
 <script setup>
 import NoteCard from "@/components/NoteCard.vue";
 import AddButton from "@/components/AddButton.vue";
-import { useStoreNotes } from "../store/storeNotes";
+import { useStoreNotes } from "@/store/storeNotes";
 
 const noteStore = useStoreNotes();
 </script>
