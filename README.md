@@ -2,7 +2,7 @@
 
 
 ### Short Description
- A free note-taking app for personal use .
+A compact, free note-taking app designed for personal use, featuring creation and update capabilities along with stats to monitor your note-taking activity.
 
 
 
